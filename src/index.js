@@ -1,19 +1,17 @@
 import _ from "lodash";
 import "./sass/styles.scss";
 
-import projectsPanel from "./projectsPanel";
+import projectsList from "./projectsList";
 import todoList from "./todoList";
 import projectForm from "./projectForm";
 
-import setAttributes from "./helpers/setAttributes";
+import createElement from "./helpers/createElement";
 
 function App() {
-  const main = document.createElement("main");
-  const projects = projectsPanel();
+  const main = createElement("main", { id: "main", class: "main" });
+  const projects = projectsList();
   const todo = todoList();
   const projectform = projectForm();
-
-  setAttributes(main, { id: "main", class: "main" });
 
   main.appendChild(projects);
   main.appendChild(todo);

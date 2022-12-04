@@ -1,30 +1,40 @@
-import setAttributes from "./helpers/setAttributes";
-import handleProjectFormSubmit from "./handleProjectFormSubmit";
+import createElement from "./helpers/createElement";
+import handleFormSubmit from "./eventHandlers/handleFormSubmit";
 
 const projectForm = () => {
-  const projectForm = document.createElement("form");
-  const projectFormHeading = document.createElement("h2");
-  const projectNameLabel = document.createElement("label");
-  const projectNameInput = document.createElement("input");
-  const projectFormSubmit = document.createElement("button");
-
-  projectFormHeading.textContent = "Add Project";
-  projectNameLabel.textContent = "Project Name";
-  projectNameInput.type = "text";
-  projectFormSubmit.textContent = "Submit";
-
-  setAttributes(projectForm, { class: "project-form" });
-  setAttributes(projectNameInput, { id: "name" });
-  setAttributes(projectNameLabel, { for: "name" });
+  const projectForm = createElement("form", { class: "project-form" });
+  const projectFormHeading = createElement(
+    "h2",
+    { class: "heading" },
+    "Add Project"
+  );
+  const projectNameLabel = createElement(
+    "label",
+    { for: "project-name" },
+    "Project Name"
+  );
+  const projectNameInput = createElement("input", {
+    id: "project-name",
+    type: "text",
+    placeholder: "Project Name",
+  });
+  const projectFormSubmit = createElement(
+    "button",
+    {
+      class: "project-form-submit",
+      type: "submit",
+    },
+    "Submit"
+  );
 
   projectForm.appendChild(projectFormHeading);
   projectForm.appendChild(projectNameLabel);
   projectForm.appendChild(projectNameInput);
   projectForm.appendChild(projectFormSubmit);
 
-  projectFormSubmit.addEventListener("click", handleProjectFormSubmit);
+  projectFormSubmit.addEventListener("click", handleFormSubmit);
 
-  document.addEventListener("mouseup", function (event) {
+  document.addEventListener("mouseup", (event) => {
     const form = document.querySelector("form");
     if (!form.contains(event.target)) {
       document.querySelector(".project-form").style.display = "none";
