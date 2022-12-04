@@ -9,7 +9,9 @@ const createElement = (type, attributes, ...children) => {
     if (typeof child === "string") {
       child = document.createTextNode(child);
     }
-    element.appendChild(child);
+    const childDiv = createElement("div");
+    childDiv.appendChild(child);
+    element.appendChild(childDiv);
   }
 
   return element;

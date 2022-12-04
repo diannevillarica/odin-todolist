@@ -1,4 +1,5 @@
 import createElement from "./helpers/createElement";
+import createProjectListItem from "./helpers/createProjectListItem";
 import handleFormSubmit from "./eventHandlers/handleFormSubmit";
 
 const projectForm = () => {
@@ -32,7 +33,7 @@ const projectForm = () => {
   projectForm.appendChild(projectNameInput);
   projectForm.appendChild(projectFormSubmit);
 
-  projectFormSubmit.addEventListener("click", handleFormSubmit);
+  projectFormSubmit.addEventListener("submit", handleFormSubmit);
 
   document.addEventListener("mouseup", (event) => {
     const form = document.querySelector("form");

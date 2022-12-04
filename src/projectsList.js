@@ -7,7 +7,7 @@ const projectsList = () => {
   const addProjectButton = createElement(
     "button",
     {
-      class: "add-project-button",
+      class: "projects-panel-button",
     },
     "Add Project"
   ); // add project button
@@ -20,8 +20,7 @@ const projectsList = () => {
   // functionality
   addProjectButton.addEventListener("click", () => {
     document.querySelector(".project-form").style.display = "flex";
-    document.querySelector(".main").style.backgroundColor =
-      "rgba(0, 0, 0, 0.5)"; // FIXME: this is not working
+    document.querySelector(".main").style.backgroundColor = "black"; // FIXME: this is not working
   });
 
   return projectsList;

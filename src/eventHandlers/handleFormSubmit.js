@@ -1,13 +1,15 @@
-const listItemArr = ["test", "test2"];
-// FIXME: Check localStorage for pushing data to listItemArr
+import createProjectListItem from "../helpers/createProjectListItem";
 
-const handleFormSubmit = () => {
+function handleFormSubmit(event) {
+  event.preventDefault();
+
   let projectName = document.getElementById("project-name").value;
-  listItemArr.push(projectName);
+
+  createProjectListItem(projectName);
 
   document.getElementById("project-name").value = "";
+}
 
-  return false;
-};
+export default handleFormSubmit;
 
-export { handleFormSubmit, listItemArr };
+// export default handleFormSubmit;

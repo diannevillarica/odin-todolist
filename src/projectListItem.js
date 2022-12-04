@@ -1,16 +1,20 @@
 import createElement from "./helpers/createElement";
-import { listItemArr } from "./eventHandlers/handleFormSubmit";
+import listItemArr from "./helpers/createProjectListItem";
+
+// console.log(item);
 
 const projectListItem = () => {
-  console.log(listItemArr);
-
   const projectListItemDiv = createElement(
     "div",
     {
-      class: "project-list-item",
+      class: "projects-panel-list",
     },
     ...listItemArr
   );
+
+  for (const child of projectListItemDiv.children) {
+    child.classList.add("projects-panel-list-item");
+  }
 
   return projectListItemDiv;
 };
