@@ -8,10 +8,14 @@ const createElement = (type, attributes, ...children) => {
   for (let child of children) {
     if (typeof child === "string") {
       child = document.createTextNode(child);
+    } else if (typeof child === "object") {
+      child = Object.values(child).toString();
     }
     const childDiv = createElement("div");
-    childDiv.appendChild(child);
-    element.appendChild(childDiv);
+
+    childDiv.append(child);
+
+    element.append(childDiv);
   }
 
   return element;

@@ -1,9 +1,8 @@
-const listItemArr = ["Project 1", "Project 2", "Project 3"];
-
 // factory function
-function createProjectListItem(projectName) {
-  console.log(projectName);
+const createProjectListItem = (projectName) => {
   return { projectName: projectName };
-}
+};
 
-export default listItemArr;
+export default createProjectListItem;
+
+//TODO: create a function that will render the todo lists items array inside the project object

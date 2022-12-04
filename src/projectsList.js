@@ -1,5 +1,5 @@
 import createElement from "./helpers/createElement";
-import projectListItem from "./projectListItem";
+import { projectListItem } from "./projectListItem";
 
 const projectsList = () => {
   const projectsList = createElement("div", { class: "projects-panel" }); // main div

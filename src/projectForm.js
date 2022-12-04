@@ -1,6 +1,6 @@
 import createElement from "./helpers/createElement";
 import createProjectListItem from "./helpers/createProjectListItem";
-import handleFormSubmit from "./eventHandlers/handleFormSubmit";
+import { listItemArr, projectListItem } from "./projectListItem";
 
 const projectForm = () => {
   const projectForm = createElement("form", { class: "project-form" });
@@ -33,7 +33,21 @@ const projectForm = () => {
   projectForm.appendChild(projectNameInput);
   projectForm.appendChild(projectFormSubmit);
 
-  projectFormSubmit.addEventListener("submit", handleFormSubmit);
+  projectForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    let input = document.querySelector("#project-name").value;
+
+    const listItem = createProjectListItem(input);
+
+    console.log(listItem); // object from factory function
+
+    listItemArr.push(listItem);
+
+    console.log(listItemArr);
+
+    document.querySelector("#project-name").value = "";
+  });
 
   document.addEventListener("mouseup", (event) => {
     const form = document.querySelector("form");

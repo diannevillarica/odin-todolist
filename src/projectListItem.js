@@ -1,7 +1,6 @@
 import createElement from "./helpers/createElement";
-import listItemArr from "./helpers/createProjectListItem";
 
-// console.log(item);
+const listItemArr = [];
 
 const projectListItem = () => {
   const projectListItemDiv = createElement(
@@ -19,4 +18,5 @@ const projectListItem = () => {
   return projectListItemDiv;
 };
 
-export default projectListItem;
+// export default projectListItem;
+export { projectListItem, listItemArr };
