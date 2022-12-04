@@ -1,3 +1,3 @@
 # odin-todolist
 
-# use npm start in the terminal
+# use npx webpack --watch in the terminal
