@@ -11,6 +11,7 @@ const createElement = (type, attributes, ...children) => {
     } else if (typeof child === "object") {
       child = Object.values(child).toString();
     }
+
     const childDiv = createElement("div");
 
     childDiv.append(child);

@@ -1,6 +1,6 @@
 import createElement from "./helpers/createElement";
 import createProjectListItem from "./helpers/createProjectListItem";
-import { listItemArr, projectListItem } from "./projectListItem";
+import { listItemArr } from "./projectListItem";
 
 const projectForm = () => {
   const projectForm = createElement("form", { class: "project-form" });
@@ -18,6 +18,7 @@ const projectForm = () => {
     id: "project-name",
     type: "text",
     placeholder: "Project Name",
+    required: true,
   });
   const projectFormSubmit = createElement(
     "button",
@@ -28,10 +29,10 @@ const projectForm = () => {
     "Submit"
   );
 
-  projectForm.appendChild(projectFormHeading);
-  projectForm.appendChild(projectNameLabel);
-  projectForm.appendChild(projectNameInput);
-  projectForm.appendChild(projectFormSubmit);
+  projectForm.append(projectFormHeading);
+  projectForm.append(projectNameLabel);
+  projectForm.append(projectNameInput);
+  projectForm.append(projectFormSubmit);
 
   projectForm.addEventListener("submit", function (event) {
     event.preventDefault();
@@ -44,7 +45,7 @@ const projectForm = () => {
 
     listItemArr.push(listItem);
 
-    console.log(listItemArr);
+    console.log(listItemArr); // array of objects from factory function
 
     document.querySelector("#project-name").value = "";
   });

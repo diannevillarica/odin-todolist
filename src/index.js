@@ -9,15 +9,15 @@ import createElement from "./helpers/createElement";
 
 function App() {
   const main = createElement("main", { id: "main", class: "main" });
-  const projects = projectsList();
-  const todo = todoList();
+  const projectslist = projectsList();
+  const todolist = todoList();
   const projectform = projectForm();
 
-  main.appendChild(projects);
-  main.appendChild(todo);
-  main.appendChild(projectform);
+  main.append(projectslist);
+  main.append(todolist);
+  main.append(projectform);
 
   return main;
 }
 
-document.body.appendChild(App());
+document.body.append(App());
