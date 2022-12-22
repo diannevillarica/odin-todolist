@@ -6,16 +6,15 @@ const createElement = (type, attributes, ...children) => {
   }
 
   for (let child of children) {
-    if (typeof child === "string") {
+    const childDiv = createElement('div');
+
+    if (typeof child === 'string') {
       child = document.createTextNode(child);
-    } else if (typeof child === "object") {
+    } else if (typeof child === 'object') {
       child = Object.values(child).toString();
     }
 
-    const childDiv = createElement("div");
-
     childDiv.append(child);
-
     element.append(childDiv);
   }
 

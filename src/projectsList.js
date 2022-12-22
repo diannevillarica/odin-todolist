@@ -1,29 +1,34 @@
-import createElement from "./helpers/createElement";
-import { projectListItem } from "./projectListItem";
+import createElement from './helpers/createElement';
+import createProjectListItem from './helpers/createProjectListItem';
 
 const projectsList = () => {
-  const projectsList = createElement("div", { class: "projects-panel" }); // main div
-  const heading = createElement("h2", { class: "heading" }, "Projects"); // heading
+  const projectsListDiv = createElement('div', { class: 'projects-panel' }); // main div
+  const heading = createElement('h2', { class: 'heading' }, 'Projects'); // heading
   const addProjectButton = createElement(
-    "button",
+    'button',
     {
-      class: "projects-panel-button",
+      class: 'projects-panel-button',
     },
-    "Add Project"
-  ); // add project button
-  const projectListItems = projectListItem();
+    'Add Project'
+  );
 
-  projectsList.appendChild(heading);
-  projectsList.appendChild(addProjectButton);
-  projectsList.appendChild(projectListItems);
-
-  // functionality
-  addProjectButton.addEventListener("click", () => {
-    document.querySelector(".project-form").style.display = "flex";
-    document.querySelector(".main").style.backgroundColor = "black"; // FIXME: this is not working
+  const projectsPanelList = createElement('div', {
+    class: 'projects-panel-list',
   });
 
-  return projectsList;
+  const projectListItem = createProjectListItem();
+
+  projectsPanelList.append(projectListItem);
+
+  projectsListDiv.append(heading, addProjectButton, projectsPanelList);
+
+  // functionality
+  addProjectButton.addEventListener('click', () => {
+    document.querySelector('.project-form').style.display = 'flex';
+    document.querySelector('.main').style.backgroundColor = 'black'; // FIXME: this is not working
+  });
+
+  return projectsListDiv;
 };
 
 export default projectsList;
